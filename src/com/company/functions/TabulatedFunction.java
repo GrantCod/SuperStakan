@@ -1,6 +1,7 @@
 package com.company.functions;
 
 public class TabulatedFunction {
+
     private double leftX;
     private double rightX;
     private FunctionPoint[] array;
@@ -15,7 +16,6 @@ public class TabulatedFunction {
             this.array[i] = new FunctionPoint(currentX, 0);
             currentX = currentX + step;
         }
-
     }
 
     public TabulatedFunction(double leftX, double rightX, double[] values) {
@@ -28,15 +28,11 @@ public class TabulatedFunction {
         for (int i = 0; i < pointsCount; i++) {
             this.array[i] = new FunctionPoint(currentX, values[i]);
             currentX = currentX + step;
-
         }
-
-
     }
 
     public double getLeftDomainBorder() {
         return this.leftX;
-
     }
 
     public double getRightDomainBorder() {
@@ -54,8 +50,7 @@ public class TabulatedFunction {
                     return this.array[i - 1].getY();
                 }
             }
-
         }
-    return Double.NaN;
+        return Double.NaN;
     }
 }
