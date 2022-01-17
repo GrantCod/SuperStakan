@@ -2,13 +2,9 @@ package com.company.functions;
 
 public class TabulatedFunction {
 
-    private double leftX;
-    private double rightX;
     private FunctionPoint[] array;
 
     public TabulatedFunction(double leftX, double rightX, int pointsCount) {
-        this.leftX = leftX;
-        this.rightX = rightX;
         this.array = new FunctionPoint[pointsCount];
         double step = (rightX - leftX) / pointsCount;
         double currentX = leftX;
@@ -19,8 +15,6 @@ public class TabulatedFunction {
     }
 
     public TabulatedFunction(double leftX, double rightX, double[] values) {
-        this.leftX = leftX;
-        this.rightX = rightX;
         int pointsCount = values.length;
         double currentX = leftX;
         double step = (rightX - leftX) / pointsCount;
@@ -32,15 +26,15 @@ public class TabulatedFunction {
     }
 
     public double getLeftDomainBorder() {
-        return this.leftX;
+        return this.array[0].getX();
     }
 
     public double getRightDomainBorder() {
-        return this.rightX;
+        return this.array[this.array.length-1].getX();
     }
 
     public double getFunctionValue(double x) {
-        if (x >= leftX && x <= rightX) {
+        if (x >= getLeftDomainBorder() && x <= getRightDomainBorder()) {
 
             for (int i = 0; i < this.array.length; i++) {
                 if (this.array[i].getX() == x) {
