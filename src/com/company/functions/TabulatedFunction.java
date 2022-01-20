@@ -84,4 +84,35 @@ public class TabulatedFunction {
     public void setPointY(int index, double y) {
         this.array[index].setY(y);
     }
+
+    public void deletePoint(int index) {
+        FunctionPoint[] values = new FunctionPoint[array.length - 1];
+        System.arraycopy(array, 0, values, 0, index);
+        System.arraycopy(array, index + 1, values, index, values.length - index);
+        this.array = values;
+    }
+
+    public void addPoint(FunctionPoint point) {
+        FunctionPoint[] values = new FunctionPoint[array.length + 1];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i == 0 && array[i].getX() > point.getX()) {
+                index = 0;
+                break;
+            }
+            else if (i == array.length-1 && point.getX() > array[i].getX()) {
+                index = i + 1;
+                break;
+            }
+            else if (array[i].getX() < point.getX() && array[i+1].getX() > point.getX()) {
+                index = i + 1;
+                break;
+            }
+        }
+        System.arraycopy(array, 0, values, 0, index);
+        values[index] = point;
+        System.arraycopy(array, index, values, index + 1, array.length - index );
+        this.array = values;
+
+    }
 }
