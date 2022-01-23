@@ -9,18 +9,18 @@ public class Main {
         for (int i = 0; i < tabulatedFunction.getPointsCount(); i++) {
             System.out.println(tabulatedFunction.getPointX(i) + " " + tabulatedFunction.getPointY(i));
         }
-        tabulatedFunction.addPoint(new FunctionPoint(3, 0));
+        tabulatedFunction.addPoint(new FunctionPoint(3, 2));
         tabulatedFunction.addPoint(new FunctionPoint(10, 0));
         tabulatedFunction.addPoint(new FunctionPoint(6, 0));
 
         tabulatedFunction.deletePoint(2);
 
-        System.out.printf("");
+        System.out.println("");
 
         for (int i = 0; i < tabulatedFunction.getPointsCount(); i++) {
             System.out.println(tabulatedFunction.getPointX(i) + " " + tabulatedFunction.getPointY(i));
         }
-        System.out.println(tabulatedFunction.getPointX(20) + " " + tabulatedFunction.getPointY(20));
+        System.out.println(tabulatedFunction.getFunctionValue(3.03)) ;
 
     }
 }

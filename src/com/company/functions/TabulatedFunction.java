@@ -41,7 +41,7 @@ public class TabulatedFunction {
                     return this.array[i].getY();
 
                 } else if (x <= this.array[i].getX()) {
-                    return this.array[i - 1].getY();
+                    return (this.array[i - 1].getY() + (this.array[i].getY() - this.array[i-1].getY()) / (this.array[i].getX() - this.array[i-1].getX())*(x - this.array[i-1].getX()));
                 }
             }
         }
